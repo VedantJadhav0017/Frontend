@@ -11,7 +11,7 @@ function About() {
         <h2 className="text-2xl font-bold md:text-4xl md:leading-tight light:text-white">Our leadership</h2>
         <p className="mt-1 text-gray-600 light:text-neutral-400">Creative people</p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-3	 sm:grid-cols-2 lg:grid-cols-2 gap-6">
         
         {/* Vishal */}
         <div style={{backgroundImage: "linear-gradient(to right, #87CEEB, #ffffff)"}} className="flex flex-col rounded-xl p-4 md:p-6 bg-white border border-gray-200 light:bg-neutral-900 light:border-neutral-700 light-bg-gradient">

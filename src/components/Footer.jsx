@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 function Footer() {
   const { currentUser } = useSelector((state) => state.user);
   return (
-    <footer className="bg-slate-400 text-gray-600 body-font">
+    <footer className="bg-blue-400 text-gray-600 body-font">
       <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
         <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
           <img src={nexum} alt="" className='h-14 bg-transparent rounded-full' />

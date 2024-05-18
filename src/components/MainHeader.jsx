@@ -17,7 +17,7 @@ function MainHeader() {
             Nurture Your Mind!
           </h1>
 
-          <p className="text-gray-800 text-xl mb-7">
+          <p className="text-gray-800 text-xl mb-7 font-mono">
             Mental Bliss is a comprehensive online platform dedicated to
             supporting mental health and wellness. Our mission is to provide
             accessible, reliable, and compassionate resources to help

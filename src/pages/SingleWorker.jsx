@@ -5,11 +5,12 @@ import { useSelector } from 'react-redux';
 import { BsStarFill } from 'react-icons/bs';
 import Input from '../components/Input';
 import { Link } from 'react-router-dom';
+import workers from '../constants';
 
 
 //TODO: Implement SingleWorker
 function SingleWorker() {
-  //get worker id from url
+  //get workers[0] id from url
   const workerId = window.location.pathname.split("/")[2]
   const [worker, setWorker] = useState({});
   const { currentUser } = useSelector(state=>state.user)
@@ -26,7 +27,7 @@ function SingleWorker() {
   const getWorkerById = async () => {
     try {
       const token = `Bearer ${currentUser.token}`;
-      const res = await axios.get(`https://nexum-backend-production-486e.up.railway.app/api/worker/show/getWorkerById/${workerId}`, {
+      const res = await axios.get(`https://nexum-backend-production-486e.up.railway.app/api/workers[0]/show/getWorkerById/${workerId}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + currentUser.token,
@@ -104,11 +105,11 @@ function SingleWorker() {
       <div className="container px-5 mx-auto">
         <div className="lg:w-full mx-auto flex flex-wrap">
           <div className="w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-            <h2 className="text-sm title-font text-gray-500 tracking-widest">{worker.userName}</h2>
+            <h2 className="text-sm title-font text-gray-500 tracking-widest">{workers[0].userName}</h2>
             <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
-              <span className='capitalize px-1'>{worker.firstName}</span>
-              <span className='capitalize px-1'>{worker.middleName}</span>
-              <span className='capitalize px-1'>{worker.lastName}</span>
+              <span className='capitalize px-1'>{workers[0].firstName}</span>
+              <span className='capitalize px-1'>{workers[0].middleName}</span>
+              <span className='capitalize px-1'>{workers[0].lastName}</span>
             </h1>
             <div className="flex mb-4">
               <span className="flex items-center">
@@ -120,32 +121,32 @@ function SingleWorker() {
             </div>
             <div className='flex flex-row-reverse justify-between'>
             <div className='flex justify-center lg:gap-24 md:flex-row flex-col md:px-12 py-4 md:gap-12 gap-4 rounded-2xl mb-4 px-4'>
-            <img alt="ecommerce" className="h-80 object-cover object-center rounded" src={worker.photoUrl} />
+            <img alt="ecommerce" className="h-80 object-cover object-center rounded" src={workers[0].photoUrl} />
             </div>
             <div className="mt-6 items-center pb-5 border-b-2 border-gray-100 rounded-xl">
               <div className=''>
                 <p className='text-lg font-semibold'>Skill : </p>
-                <p className='px-4 text-gray-900'>{worker.skills}</p>
+                <p className='px-4 text-gray-900'>{workers[0].skills}</p>
               </div>
               <div className=''>
                 <p className='text-lg font-semibold'>Contact Details</p>
-                <p className='px-4 text-gray-900'>{worker.email}</p>
-                <p className='px-4 text-gray-900'>{worker.phoneNo}</p>
+                <p className='px-4 text-gray-900'>{workers[0].email}</p>
+                <p className='px-4 text-gray-900'>{workers[0].phoneNo}</p>
               </div>
               <div>
                 <p className='text-lg font-semibold'>Address : </p>
-                <p className='px-4 text-gray-900'>Local Address : {worker.address}</p>
-                <p className='px-4 text-gray-900'>State : {worker.state} </p>
-                <p className='px-4 text-gray-900'>City : {worker.city}</p>
-                <p className='px-4 text-gray-900'>Country : {worker.country}</p>
+                <p className='px-4 text-gray-900'>Local Address : {workers[0].address}</p>
+                <p className='px-4 text-gray-900'>State : {workers[0].state} </p>
+                <p className='px-4 text-gray-900'>City : {workers[0].city}</p>
+                <p className='px-4 text-gray-900'>Country : {workers[0].country}</p>
               </div>
               <div>
                 <p className='text-lg font-semibold'>Exprience : </p>
-                <p className='px-4 text-gray-900'>{worker.experience}</p>
+                <p className='px-4 text-gray-900'>{workers[0].experience}</p>
               </div>
               <div>
                 <p className='text-lg font-semibold'>About : </p>
-                <p className='px-4 text-gray-900 text-wrap'>{worker.about}</p>
+                <p className='px-4 text-gray-900 text-wrap'>{workers[0].about}</p>
               </div>
             </div>
             </div>

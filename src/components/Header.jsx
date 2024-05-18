@@ -21,7 +21,7 @@ export default function Header() {
     }
   }, [location.search]);
   return (
-    <header className='bg-slate-400 shadow-md px-2 md:px-12'>
+    <header className='bg-blue-400 shadow-md px-2 md:px-12'>
       <nav className="w-full flex py-4 justify-between items-center navbar">
       <Link to='/'>
           <h1 className='font-bold text-sm sm:text-xl flex flex-wrap items-center justify-center gap-4'>
