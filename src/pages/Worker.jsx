@@ -40,7 +40,7 @@ function Worker() {
 
 
   return (
-    <section className="text-gray-100 body-font">
+    <section className="text-gray-100 body-font" style={{ backgroundColor: 'lightblue' }}>
       <h1 className="text-3xl text-center bg-text font-semibold my-7">Workers</h1>
       { data.length > 0 ? 
       <div className="container px-5 py-4 mx-auto">

@@ -25,7 +25,7 @@ export default function Header() {
       <nav className="w-full flex py-4 justify-between items-center navbar">
       <Link to='/'>
           <h1 className='font-bold text-sm sm:text-xl flex flex-wrap items-center justify-center gap-4'>
-            <span className='text-slate-900'>Nexum</span>
+            <span className='text-slate-900'>Mental Bliss</span>
           </h1>
         </Link>
 
@@ -42,14 +42,10 @@ export default function Header() {
           <>
             <Link to='/workers'>
               <li className='hidden sm:inline text-slate-700 hover:underline'>
-                Workers
+                Community Members  
               </li>
             </Link>
-            <Link to='/hero'>
-              <li className='hidden sm:inline text-slate-700 hover:underline'>
-                Hero
-              </li>
-            </Link>
+            
             </>: ''}
           <Link to='/about'>
             <li className='hidden sm:inline text-slate-700 hover:underline'>

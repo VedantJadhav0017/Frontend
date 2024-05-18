@@ -5,11 +5,11 @@ import { useSelector } from 'react-redux';
 function Footer() {
   const { currentUser } = useSelector((state) => state.user);
   return (
-    <footer className="text-gray-600 body-font">
+    <footer className="bg-slate-400 text-gray-600 body-font">
       <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
         <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
           <img src={nexum} alt="" className='h-14 bg-transparent rounded-full' />
-          <span className="ml-3 text-xl">Nexum</span>
+          <span className="ml-3 text-xl">Mental Bliss</span>
         </a>
         <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2024 IIIT Lucknow —
           <a href="https://twitter.com/knyttneve" className="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">iiit@ac.in</a>

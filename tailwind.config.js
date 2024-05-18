@@ -43,6 +43,14 @@ export default {
         "conic-gradient":
           "conic-gradient(from 225deg, #FFC876, #79FFF7, #9F53FF, #FF98E2, #FFC876)",
       },
+      backgroundColor: {
+        skyblue: '#87CEEB', // Added skyblue color definition
+      },
+      gradientColorStops: theme => ({
+        ...theme('colors'),
+        'skyblue': '#87CEEB',
+        'white': '#ffffff',
+      }),
     },
   },
   plugins: [

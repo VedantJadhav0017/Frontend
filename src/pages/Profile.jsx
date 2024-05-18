@@ -12,9 +12,6 @@ import {
   updateUserStart,
   updateUserSuccess,
   updateUserFailure,
-  deleteUserFailure,
-  deleteUserStart,
-  deleteUserSuccess,
   signOutUserStart,
   signOutUserSuccess,
   signOutUserFailure,
@@ -29,18 +26,22 @@ export default function Profile() {
   const [file, setFile] = useState(undefined);
   const [filePerc, setFilePerc] = useState(0);
   const [fileUploadError, setFileUploadError] = useState(false);
-  const [formData, setFormData] = useState({email: currentUser.user.email, username: currentUser.user.username, phoneNumber: currentUser.user.phoneNumber, password: "", photoUrl: currentUser.user.photoUrl});
+  const [formData, setFormData] = useState({
+    email: currentUser.user.email,
+    username: currentUser.user.username,
+    phoneNumber: currentUser.user.phoneNumber,
+    password: '',
+    photoUrl: currentUser.user.photoUrl,
+  });
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
 
   useEffect(() => {
     if (file) {
       handleFileUpload(file);
     }
   }, [file]);
-
 
   const handleFileUpload = (file) => {
     const storage = getStorage(app);
@@ -75,12 +76,16 @@ export default function Profile() {
     try {
       dispatch(updateUserStart());
       const token = `Bearer ${currentUser.token}`;
-      const res = await axios.post(`https://nexum-backend-production-486e.up.railway.app/api/update/${currentUser.user.id}`, formData, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': String(token),
-        },
-      });
+      const res = await axios.post(
+        `https://nexum-backend-production-486e.up.railway.app/api/update/${currentUser.user.id}`,
+        formData,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: String(token),
+          },
+        }
+      );
       const data = res.data;
       if (data.token === null) {
         dispatch(updateUserFailure(data.message));
@@ -93,28 +98,30 @@ export default function Profile() {
     }
   };
 
-
   const handleSignOut = async () => {
     try {
       dispatch(signOutUserStart());
       const token = `Bearer ${currentUser.token}`;
-      
-      const res = await axios.get('https://nexum-backend-production-486e.up.railway.app/api/logout', {
-        headers: {
-          'Authorization': String(token),
-        },
-      });
-      // const data = await res.json();
-      if(res.status == 200){
+
+      const res = await axios.get(
+        'https://nexum-backend-production-486e.up.railway.app/api/logout',
+        {
+          headers: {
+            Authorization: String(token),
+          },
+        }
+      );
+      if (res.status === 200) {
         dispatch(signOutUserSuccess());
-        navigate('/sign-in')
+        navigate('/sign-in');
       }
     } catch (error) {
+      dispatch(signOutUserFailure(error.message));
     }
   };
 
   return (
-    <div className='p-3 max-w-lg mx-auto pb-24'>
+    <div className='p-3 max-w-lg mx-auto pb-24' style={{ backgroundColor: '#ebf4ff' }}>
       <h1 className='text-3xl font-semibold text-center my-7'>Profile</h1>
       
       <form className='flex flex-col gap-4'>
@@ -189,10 +196,12 @@ export default function Profile() {
         </button>
       </form>
       <div className='flex justify-between mt-5 mx-9'>
-        <span
-          className='text-blue-700 cursor-pointer'
-        >
-          {currentUser.user.role === 'WORK' ? <Link to={"/dashboard"}> Visit Your DashBoard </Link> : <Link to={"/workers"}> Hire new Worker </Link> }
+        <span className='text-blue-700 cursor-pointer'>
+          {currentUser.user.role === 'WORK' ? (
+            <Link to={'/dashboard'}>Visit Your Dashboard</Link>
+          ) : (
+            <Link to={'/workers'}>Hire new Worker</Link>
+          )}
         </span>
         <button onClick={handleSignOut} className='text-red-700 cursor-pointer'>
           Sign out
