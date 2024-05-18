@@ -4,6 +4,7 @@ import FeedbackForm from '../components/FeedBackForm';
 import { useSelector } from 'react-redux';
 import { BsStarFill } from 'react-icons/bs';
 import Input from '../components/Input';
+import { Link } from 'react-router-dom';
 
 
 //TODO: Implement SingleWorker
@@ -159,10 +160,9 @@ function SingleWorker() {
                 {reviews.length === 0 ? <p>Sorry... No reviews yet.</p> : ""}
             </div>
             <div className="relative mb-4">
+              
               <p className='text-xl font-bold pb-4'>Send Message to Worker</p>
-              <label htmlFor="email" className="leading-7 text-sm text-gray-600">Message</label>
-              <input type="email" id="email" name="email" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out mb-4 mx-0" onChange={(e)=>setMessage({...message, message: e.target.value })}/>
-              <button className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded-lg text-lg" onClick={handleMessageSubmit}>Send</button>
+              <Link to={`http://localhost:9090`} className='text-2xl text-blue-600'>Send message</Link>
             </div>
 
           </div>
